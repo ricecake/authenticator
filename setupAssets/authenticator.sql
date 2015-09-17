@@ -6,6 +6,10 @@ CREATE TABLE domain (
 CREATE TABLE user (
   id SERIAL
 );
+CREATE TABLE credentials (
+  id      SERIAL,
+  user    REFERENCES(user.id)
+);
 CREATE TABLE action (
   id SERIAL
 );
