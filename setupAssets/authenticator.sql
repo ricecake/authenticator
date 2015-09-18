@@ -7,8 +7,19 @@ CREATE TABLE user (
   id SERIAL
 );
 CREATE TABLE credentials (
-  id      SERIAL,
-  user    REFERENCES(user.id)
+  id         SERIAL,
+  user       NOT NULL REFERENCES(user.id),
+  effective  TIMESTAMP DEFAULT NOW(),
+  version    INTEGER NOT NULL,
+  salt       BYTEA NOT NULL,
+  hash       BYTEA NOT NULL
+);
+CREATE TABLE totp_secret (
+  id         SERIAL,
+  user       UNIQUE NOT NULL REFERENCES(user.id),
+  version    INTEGER NOT NULL,
+  salt       BYTEA NOT NULL,
+  cipher     BYTEA NOT NULL
 );
 CREATE TABLE action (
   id SERIAL
