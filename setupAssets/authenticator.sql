@@ -22,16 +22,19 @@ CREATE TABLE totp_secret (
   cipher     BYTEA NOT NULL
 );
 CREATE TABLE action (
-  id SERIAL
+  id SERIAL,
+  name LTREE NOT NULL
 );
 CREATE TABLE role (
-  id SERIAL
+  id SERIAL,
+  name TEXT NOT NULL
 );
 CREATE TABLE group (
   id SERIAL
 );
 CREATE TABLE ratelimit (
-  id SERIAL
+  id SERIAL,
+  name TEXT NOT NULL
 );
 
 -- user domain many/many
