@@ -1,0 +1,6 @@
+-name authenticator
+
+-setcookie authenticator_cookie
+
++K true
++A30
