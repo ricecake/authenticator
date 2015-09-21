@@ -30,11 +30,13 @@ CREATE TABLE role (
   name TEXT NOT NULL
 );
 CREATE TABLE group (
-  id SERIAL
+  id SERIAL,
+  name TEXT NOT NULL
 );
 CREATE TABLE ratelimit (
   id SERIAL,
-  name TEXT NOT NULL
+  count INTEGER NOT NULL,
+  window INTEGER NOT NULL
 );
 
 -- user domain many/many
